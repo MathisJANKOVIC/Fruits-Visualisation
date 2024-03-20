@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+from database import collection
 import requests
 
 response = requests.get("https://www.fruityvice.com/api/fruit/all")
@@ -8,10 +8,4 @@ if(response.status_code >= 400):
 
 fruits: list[dict] = response.json()
 
-client = MongoClient("mongodb://localhost:27017/")
-
-db = client["fruits-visualisation"]
-collection = db["fruits"]
-
-# Insérer les données dans la collection
 collection.insert_many(fruits)
