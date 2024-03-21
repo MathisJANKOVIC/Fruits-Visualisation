@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 
-# Créer une connexion au client MongoDB
-client = MongoClient("mongodb://localhost:27017/")
+mongo_client = MongoClient("mongodb://localhost:27017/")
 
-db = client["fruits-visualisation"]
-collection = db["fruits"]
+db = mongo_client.get_database("fruits-visualisation")
+collection = db.get_collection("fruits")
