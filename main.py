@@ -1,7 +1,10 @@
 from visualise_fruits import plot
 from database import collection
-
+import load_data
 import tkinter
+
+load_data.main()
+
 root = tkinter.Tk()
 root.title("Fruits-Visualisation")
 
